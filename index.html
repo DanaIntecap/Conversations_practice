@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>English Journey Speaking Cards - Unit 4</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0060AA;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: white; 
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+
+.logo-intecap {
+    text-align: left; 
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.logo-intecap img {
+    max-height: 45px;
+}
+
+.banner {
+    text-align: center;
+    background: #0060AA;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.banner h1 {
+    font-family: 'Antonio', sans-serif;
+    font-size: 48px;
+    margin: 5px 0;
+}
+
+.banner h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.instructions {
+    background: #f0f4f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.vocab-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.vocab-word {
+    background: #e6f0f9;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #0060AA;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.vocab-word:hover {
+    background: #cce0f5;
+}
+
+.chat-section h3 { 
+    color: #0060AA; 
+    text-align: center; 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.message-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+.message-row.reverse { flex-direction: row-reverse; }
+
+.btn-speak {
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.2em;
+    transition: transform 0.2s;
+    background: #f0f4f8;
+}
+
+.btn-speak:active { transform: scale(0.9); }
+
+.message-bubble {
+    padding: 12px 15px;
+    cursor: pointer;
+    flex-grow: 1;
+    border-radius: 15px;
+    font-size: 0.95em;
+}
+
+/* Customer Styles */
+.customer .message-bubble { background: #f9f9f9; color: #333; border-radius: 15px 15px 15px 0; border: 1px solid #eee;}
+
+/* Assistant Styles */
+.assistant .message-bubble { background: #e6f0f9; color: #004a80; border-radius: 15px 15px 0 15px; text-align: right; }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header & Logo -->
+    <div class="logo-intecap">
+        <!-- Reemplaza el src con la URL de tu logo en GitHub -->
+        <img src="URL_DEL_LOGO_AQUI.png" alt="Logo Intecap">
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h2>Unit 4 • CEFR Level: A1.1</h2>
+        <h1>AT THE SUPERMARKET</h1>
+        <h2>Topic: Shopping, Prices, and Locations</h2>
+    </div>
+
+    <!-- Instructions & Objective -->
+    <div class="instructions">
+        <strong>Objective:</strong> Practice asking for items, prices, and locations in a supermarket context.<br>
+        <strong>Instructions:</strong> Click on the new vocabulary words, the text, or the 🔊 buttons to listen to the correct pronunciation.
+    </div>
+
+    <!-- Vocabulary -->
+    <div class="chat-section">
+        <h3>📚 New Vocabulary</h3>
+        <div class="vocab-section">
+            <span class="vocab-word" onclick="speak('discount', 'en-US')">🔊 discount</span>
+            <span class="vocab-word" onclick="speak('how much', 'en-US')">🔊 how much</span>
+            <span class="vocab-word" onclick="speak('aisle', 'en-US')">🔊 aisle</span>
+            <span class="vocab-word" onclick="speak('shelf', 'en-US')">🔊 shelf</span>
+            <span class="vocab-word" onclick="speak('pound', 'en-US')">🔊 pound</span>
+            <span class="vocab-word" onclick="speak('cash', 'en-US')">🔊 cash</span>
+        </div>
+    </div>
+
+    <!-- Dialogues -->
+    <div class="chat-section">
+        <h3>📍 Aisle and Shelf</h3>
+        
+        <div class="message-row customer">
+            <button class="btn-speak" onclick="speak('Excuse me, where is the coffee?', 'en-US')">🔊</button>
+            <div class="message-bubble" onclick="speak('Excuse me, where is the coffee?', 'en-US')">
+                <strong>Customer:</strong><br>"Excuse me, where is the coffee?"
+            </div>
+        </div>
+
+        <div class="message-row reverse assistant">
+            <button class="btn-speak" onclick="speak('It is in Aisle 3, on the first shelf.', 'en-GB')">🔊</button>
+            <div class="message-bubble" onclick="speak('It is in Aisle 3, on the first shelf.', 'en-GB')">
+                <strong>Assistant:</strong><br>"It is in Aisle 3, on the first shelf."
+            </div>
+        </div>
+
+        <div class="message-row customer">
+            <button class="btn-speak" onclick="speak('Thank you! And... is the pasta on sale?', 'en-US')">🔊</button>
+            <div class="message-bubble" onclick="speak('Thank you! And... is the pasta on sale?', 'en-US')">
+                <strong>Customer:</strong><br>"Thank you! And... is the pasta on sale?"
+            </div>
+        </div>
+
+        <div class="message-row reverse assistant">
+            <button class="btn-speak" onclick="speak('Yes, it is. It is only one dollar the bag.', 'en-GB')">🔊</button>
+            <div class="message-bubble" onclick="speak('Yes, it is. It is only one dollar the bag.', 'en-GB')">
+                <strong>Assistant:</strong><br>"Yes, it is. It's only $1 the bag."
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Unified Audio Script -->
+<script>
+  function speak(text, lang) {
+    window.speechSynthesis.cancel();
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.lang = lang;
+    msg.rate = 0.85; 
+    window.speechSynthesis.speak(msg);
+  }
+</script>
+
+</body>
+</html>
