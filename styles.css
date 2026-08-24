@@ -55,6 +55,18 @@ body {
   max-height: 45px;
 }
 
+/* Aviso de uso (no es tarea) */
+.usage-notice {
+  background: #fff4e5;
+  border: 1px solid #f0c37c;
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #7a4a00;
+  line-height: 1.5;
+}
+
 /* Unit picker */
 .unit-picker {
   display: flex;
