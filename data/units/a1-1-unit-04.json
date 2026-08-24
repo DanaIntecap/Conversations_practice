@@ -1,1 +1,91 @@
+{
+  "id": "unit-04",
+  "meta": {
+    "unitLabel": "Unit 4",
+    "title": "AT THE SUPERMARKET",
+    "subtitle": "Topic: Shopping, Prices, and Locations",
+    "cefrLevel": "A1.1",
+    "skill": "Conversation Practice"
+  },
+  "guide": {
+    "description": "Actividad interactiva de comprensión y práctica oral basada en conversaciones contextualizadas. El estudiante escucha el vocabulario y los diálogos, practica la pronunciación y refuerza expresiones utilizadas en situaciones reales de comunicación.",
+    "objective": "Desarrollar la comprensión auditiva y la confianza al utilizar expresiones básicas en inglés mediante la escucha, repetición y comprensión de conversaciones relacionadas con situaciones cotidianas de la unidad.",
+    "instructions": [
+      "Explora el vocabulario nuevo antes de comenzar la conversación.",
+      "Haz clic en los botones 🔊 para escuchar la pronunciación correcta.",
+      "Escucha cada diálogo completo al menos una vez.",
+      "Repite las preguntas y respuestas en voz alta para practicar pronunciación y entonación.",
+      "Repite la práctica con un compañero, cambiando roles al terminar."
+    ],
+    "successCriteria": [
+      "Identifica el vocabulario clave de la unidad.",
+      "Comprende la idea general de las conversaciones.",
+      "Reconoce preguntas y respuestas frecuentes en contextos cotidianos.",
+      "Pronuncia palabras y expresiones de forma cada vez más clara.",
+      "Participa activamente repitiendo y practicando los diálogos."
+    ]
+  },
+  "instructionsBanner": "Click on the new vocabulary words, the text, or the 🔊 buttons to listen to the correct pronunciation.",
+  "vocabulary": [
+    { "icon": "📉", "word": "discount", "lang": "en-US", "definition": "A reduction in the usual price of an item." },
+    { "icon": "🏷️", "word": "how much", "lang": "en-US", "definition": "A phrase used to ask about the price or quantity." },
+    { "icon": "🛒", "word": "aisle", "lang": "en-US", "definition": "A passage between shelves in a supermarket." },
+    { "icon": "🥫", "word": "shelf", "lang": "en-US", "definition": "A flat surface where products are displayed." },
+    { "icon": "⚖️", "word": "pound", "lang": "en-US", "definition": "A unit of weight used for food items." },
+    { "icon": "💵", "word": "cash", "lang": "en-US", "definition": "Money in the form of coins or notes." }
+  ],
+  "dialogues": [
+    {
+      "title": "💰 Checking Prices",
+      "highlight": false,
+      "lines": [
+        { "speaker": "customer", "lang": "en-US", "text": "What is the price of an apple?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "The apples are $11.00 per kilo.", "speech": "The apples are eleven dollars per kilo." }
+      ]
+    },
+    {
+      "title": "📍 Aisle and Shelf",
+      "highlight": false,
+      "lines": [
+        { "speaker": "customer", "lang": "en-US", "text": "Excuse me, where is the coffee?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "It is in Aisle 3, on the first shelf.", "speech": "It is in Aisle three, on the first shelf." }
+      ]
+    },
+    {
+      "title": "🛒 Finding Items",
+      "highlight": false,
+      "lines": [
+        { "speaker": "customer", "lang": "en-US", "text": "Excuse me, where is the milk?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "It is in the beverages section." }
+      ]
+    },
+    {
+      "title": "🏷️ Sales and Regular Price",
+      "highlight": false,
+      "lines": [
+        { "speaker": "customer", "lang": "en-US", "text": "Is the pasta on sale?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "No, it is at a regular price today." }
+      ]
+    },
+    {
+      "title": "🏁 Final Challenge: At the Store",
+      "highlight": true,
+      "lines": [
+        { "speaker": "customer", "lang": "en-US", "text": "Excuse me, where is the chicken?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "It is in Aisle 4, on the second shelf." },
+        { "speaker": "customer", "lang": "en-US", "text": "Thanks! And what is the price of the fish?" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "The fish is $10.00. It is on sale!", "speech": "The fish is ten dollars. It is on sale!" },
+        { "speaker": "customer", "lang": "en-US", "text": "Great. Where are the oranges? I want to make fish with orange sauce." },
+        { "speaker": "assistant", "lang": "en-GB", "text": "That sounds delicious. They are in the third aisle." },
+        { "type": "divider" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "Ready?", "speech": "Are you ready?" },
+        { "speaker": "customer", "lang": "en-US", "text": "Yes, I have everything I need." },
+        { "speaker": "assistant", "lang": "en-GB", "text": "It is a total of $12.50. Cash or credit?", "speech": "It is a total of twelve dollars and fifty cents. Cash or credit?" },
+        { "speaker": "customer", "lang": "en-US", "text": "Cash, thank you!" },
+        { "speaker": "assistant", "lang": "en-GB", "text": "My pleasure, have a nice day!" },
+        { "speaker": "customer", "lang": "en-US", "text": "Thanks, have a good one!" }
+      ]
+    }
+  ]
+}
 
