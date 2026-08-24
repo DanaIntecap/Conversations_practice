@@ -62,32 +62,22 @@
   }
 
   function renderGuide(guide, meta) {
-    const body = document.getElementById("guideBody");
     if (!guide) {
       document.querySelector(".guide-panel").hidden = true;
       return;
     }
 
-    const instructionsList = (guide.instructions || [])
-      .map((item) => `<li>${item}</li>`)
-      .join("");
     const criteriaList = (guide.successCriteria || [])
       .map((item) => `<li>${item}</li>`)
       .join("");
 
-    body.innerHTML = `
-      <div class="guide-meta">
-        <span><strong>Skill:</strong> ${meta.skill || ""}</span>
-        <span><strong>CEFR Level:</strong> ${meta.cefrLevel || ""}</span>
-      </div>
-      <p>${guide.description || ""}</p>
-      <h4>🎯 Objetivo de Aprendizaje</h4>
-      <p>${guide.objective || ""}</p>
-      <h4>📌 Instrucciones</h4>
-      <ol>${instructionsList}</ol>
-      <h4>✅ Criterios de Éxito</h4>
-      <ul>${criteriaList}</ul>
+    document.getElementById("guideMeta").innerHTML = `
+      <span><strong>Skill:</strong> ${meta.skill || ""}</span>
+      <span><strong>CEFR Level:</strong> ${meta.cefrLevel || ""}</span>
     `;
+    document.getElementById("guideDescription").textContent = guide.description || "";
+    document.getElementById("guideObjective").textContent = guide.objective || "";
+    document.getElementById("guideCriteria").innerHTML = criteriaList;
   }
 
   function renderInstructionsBanner(text) {
