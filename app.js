@@ -169,8 +169,47 @@
     document.getElementById("pageError").hidden = false;
   }
 
+  // Carga data/index.json (catálogo de unidades) y arma el <select>.
+  // Si el archivo no existe todavía, el selector simplemente no aparece
+  // (no rompe la actividad — es una mejora opcional).
+  async function initUnitPicker(currentUnitId) {
+    const picker = document.querySelector(".unit-picker");
+    const select = document.getElementById("unitSelect");
+    if (!picker || !select) return;
+
+    try {
+      const response = await fetch("data/index.json");
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const catalog = await response.json();
+
+      if (!Array.isArray(catalog) || catalog.length === 0) {
+        picker.hidden = true;
+        return;
+      }
+
+      select.innerHTML = catalog
+        .map(
+          (item) =>
+            `<option value="${item.id}"${item.id === currentUnitId ? " selected" : ""}>${item.title || item.id}</option>`
+        )
+        .join("");
+
+      select.addEventListener("change", () => {
+        const params = new URLSearchParams(window.location.search);
+        params.set("unit", select.value);
+        window.location.search = params.toString();
+      });
+
+      picker.hidden = false;
+    } catch (err) {
+      // No hay catálogo aún: ocultamos el selector sin afectar el resto.
+      picker.hidden = true;
+    }
+  }
+
   async function init() {
     const unitId = getUnitId();
+    initUnitPicker(unitId);
 
     try {
       const response = await fetch(`${DATA_BASE_PATH}${unitId}.json`);
