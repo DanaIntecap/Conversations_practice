@@ -29,6 +29,11 @@
       <img class="brand-logo" src="logo-intecap.png" alt="Logo Intecap" onerror="this.style.display='none'">
     </div>
 
+    <!-- Aviso de uso: texto fijo, igual en todas las unidades -->
+    <div class="usage-notice">
+      📌 Uso: 🚫 Esta actividad no está diseñada para dejarse como tarea. Su propósito es facilitar la práctica guiada, el acompañamiento docente y el apoyo inmediato al estudiante durante la sesión de clase.
+    </div>
+
     <!-- Selector de unidad: poblado por JS desde data/index.json -->
     <div class="unit-picker">
       <label for="unitSelect">📂 Choose an activity:</label>
@@ -42,10 +47,27 @@
       <h2 id="bannerSubtitle"></h2>
     </div>
 
-    <!-- Ficha técnica colapsable (poblada por JS desde guide) -->
+    <!-- Ficha técnica colapsable. La descripción/objetivo/criterios siguen
+         viniendo del JSON (guide), pero las Instrucciones de uso son fijas
+         aquí porque son las mismas para todas las unidades. -->
     <details class="guide-panel">
       <summary>📖 Ver Ficha Técnica e Instrucciones de la Actividad</summary>
-      <div class="guide-body" id="guideBody"></div>
+      <div class="guide-body">
+        <div class="guide-meta" id="guideMeta"></div>
+        <p id="guideDescription"></p>
+        <h4>🎯 Objetivo de Aprendizaje</h4>
+        <p id="guideObjective"></p>
+        <h4>📌 Instrucciones</h4>
+        <ol>
+          <li>Explora el vocabulario nuevo antes de comenzar la conversación.</li>
+          <li>Haz clic en los botones 🔊 para escuchar la pronunciación correcta.</li>
+          <li>Escucha cada diálogo completo al menos una vez.</li>
+          <li>Repite las preguntas y respuestas en voz alta para practicar pronunciación y entonación.</li>
+          <li>Repite la práctica con un compañero, cambiando roles al terminar.</li>
+        </ol>
+        <h4>✅ Criterios de Éxito</h4>
+        <ul id="guideCriteria"></ul>
+      </div>
     </details>
 
     <!-- Instrucciones cortas de uso -->
