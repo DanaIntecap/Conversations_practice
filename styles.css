@@ -55,6 +55,43 @@ body {
   max-height: 45px;
 }
 
+/* Unit picker */
+.unit-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #f0f4f8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95em;
+}
+
+.unit-picker label {
+  font-weight: 600;
+  color: var(--brand-blue);
+}
+
+.unit-picker select {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  color: var(--ink);
+  background: white;
+  cursor: pointer;
+}
+
+.unit-picker select:focus-visible {
+  outline: 2px solid var(--brand-blue);
+}
+
 /* Banner */
 .banner {
   text-align: center;
