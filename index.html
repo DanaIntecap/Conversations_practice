@@ -3,392 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>English Journey Speaking Cards - Unit 4</title>
+<title>English Journey · Speaking Cards</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: #0060AA;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 950px;
-    margin: auto;
-    background: white; 
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,.15);
-}
-
-.logo-intecap {
-    text-align: left; 
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-}
-
-.logo-intecap img {
-    max-height: 45px;
-}
-
-.banner {
-    text-align: center;
-    background: #0060AA;
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-}
-
-.banner h1 {
-    font-family: 'Antonio', sans-serif;
-    font-size: 48px;
-    margin: 5px 0;
-}
-
-.banner h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    margin: 0;
-}
-
-.instructions {
-    background: #f0f4f8;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 0.95em;
-    color: #333;
-}
-
-/* Vocabulary Styles */
-.vocab-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.vocab-card {
-    background: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.vocab-word {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #0060AA;
-    font-size: 1.1em;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #e6f0f9;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: background 0.2s;
-}
-
-.vocab-word:hover {
-    background: #cce0f5;
-}
-
-.vocab-def {
-    font-size: 0.85em;
-    color: #555;
-    padding-left: 5px;
-}
-
-/* Chat Section Styles */
-.chat-section {
-    margin-bottom: 40px;
-}
-
-.chat-section h3 { 
-    color: #0060AA; 
-    text-align: center; 
-    border-bottom: 2px solid #eee; 
-    padding-bottom: 10px; 
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-}
-
-.message-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
-.message-row.reverse { flex-direction: row-reverse; }
-
-.btn-speak {
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 1.2em;
-    transition: transform 0.2s;
-    background: #f0f4f8;
-}
-
-.btn-speak:active { transform: scale(0.9); }
-
-.message-bubble {
-    padding: 12px 15px;
-    cursor: pointer;
-    flex-grow: 1;
-    border-radius: 15px;
-    font-size: 0.95em;
-}
-
-/* Customer Styles */
-.customer .message-bubble { background: #f9f9f9; color: #333; border-radius: 15px 15px 15px 0; border: 1px solid #eee;}
-
-/* Assistant Styles */
-.assistant .message-bubble { background: #e6f0f9; color: #004a80; border-radius: 15px 15px 0 15px; text-align: right; }
-
-hr.divider {
-    border: 0;
-    border-top: 2px dashed #e0e0e0;
-    margin: 30px 0;
-}
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<!-- Header & Logo -->
-    <div class="logo-ingles" style="text-align: left; margin-bottom: 20px; padding-bottom: 10px;">
-        <img src="ingles-para-todos.png" alt="Logo Inglés para Todos" style="max-height: 80px;">
-    </div>
-    
-<div class="container">
-    <!-- Header & Logo -->
-    <div class="logo-intecap">
-        <img src="logo-intecap.png" alt="Logo Intecap">
+<!--
+  Este archivo es un MOTOR genérico: no contiene texto de la actividad.
+  Todo el contenido (vocabulario, diálogos, ficha técnica) vive en un JSON
+  bajo /data/units/. Para cargar otra unidad, cambia el data-unit del body
+  o abre la página con ?unit=unit-05 (por ejemplo).
+-->
+<body data-unit="unit-04">
+
+  <div class="page-loader" id="pageLoader">Loading activity…</div>
+
+  <div class="container" id="app" hidden>
+
+    <!-- Header & Logos (ajusta las rutas a tus assets reales) -->
+    <div class="brand-row">
+      <img class="brand-logo" src="assets/ingles-para-todos.png" alt="Logo Inglés para Todos" onerror="this.style.display='none'">
+      <img class="brand-logo" src="assets/logo-intecap.png" alt="Logo Intecap" onerror="this.style.display='none'">
     </div>
 
-    <!-- Banner -->
+    <!-- Banner (poblado por JS desde meta) -->
     <div class="banner">
-        <h2>Unit 4 • CEFR Level: A1.1</h2>
-        <h1>AT THE SUPERMARKET</h1>
-        <h2>Topic: Shopping, Prices, and Locations</h2>
+      <h2 id="bannerUnit"></h2>
+      <h1 id="bannerTitle"></h1>
+      <h2 id="bannerSubtitle"></h2>
     </div>
 
-    <!-- Instructions & Objective -->
+    <!-- Ficha técnica colapsable (poblada por JS desde guide) -->
+    <details class="guide-panel">
+      <summary>📖 Ver Ficha Técnica e Instrucciones de la Actividad</summary>
+      <div class="guide-body" id="guideBody"></div>
+    </details>
+
+    <!-- Instrucciones cortas de uso -->
     <div class="instructions">
-        <strong>Objective:</strong> Practice asking for items, prices, and locations in a supermarket context.<br>
-        <strong>Instructions:</strong> Click on the new vocabulary words, the text, or the 🔊 buttons to listen to the correct pronunciation.
+      <strong>Instructions:</strong> <span id="instructionsBanner"></span>
     </div>
 
-    <!-- Vocabulary -->
+    <!-- Vocabulario (poblado por JS) -->
     <div class="chat-section">
-        <h3>📚 New Vocabulary</h3>
-        <div class="vocab-section">
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('discount', 'en-US')">🔊 📉 discount</span>
-                <span class="vocab-def">A reduction in the usual price of an item.</span>
-            </div>
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('how much', 'en-US')">🔊 🏷️ how much</span>
-                <span class="vocab-def">A phrase used to ask about the price or quantity.</span>
-            </div>
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('aisle', 'en-US')">🔊 🛒 aisle</span>
-                <span class="vocab-def">A passage between shelves in a supermarket.</span>
-            </div>
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('shelf', 'en-US')">🔊 🥫 shelf</span>
-                <span class="vocab-def">A flat surface where products are displayed.</span>
-            </div>
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('pound', 'en-US')">🔊 ⚖️ pound</span>
-                <span class="vocab-def">A unit of weight used for food items.</span>
-            </div>
-            <div class="vocab-card">
-                <span class="vocab-word" onclick="speak('cash', 'en-US')">🔊 💵 cash</span>
-                <span class="vocab-def">Money in the form of coins or notes.</span>
-            </div>
-        </div>
+      <h3>📚 New Vocabulary</h3>
+      <div class="vocab-section" id="vocabSection"></div>
     </div>
 
-    <!-- Dialogue 1 -->
-    <div class="chat-section">
-        <h3>💰 Checking Prices</h3>
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('What is the price of an apple?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('What is the price of an apple?', 'en-US')">
-                <strong>Customer:</strong><br>"What is the price of an apple?"
-            </div>
-        </div>
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('The apples are eleven dollars per kilo.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('The apples are eleven dollars per kilo.', 'en-GB')">
-                <strong>Assistant:</strong><br>"The apples are $11.00 per kilo."
-            </div>
-        </div>
-    </div>
+    <!-- Diálogos (poblados por JS) -->
+    <div id="dialoguesRoot"></div>
 
-    <!-- Dialogue 2 -->
-    <div class="chat-section">
-        <h3>📍 Aisle and Shelf</h3>
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Excuse me, where is the coffee?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Excuse me, where is the coffee?', 'en-US')">
-                <strong>Customer:</strong><br>"Excuse me, where is the coffee?"
-            </div>
-        </div>
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('It is in Aisle three, on the first shelf.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('It is in Aisle three, on the first shelf.', 'en-GB')">
-                <strong>Assistant:</strong><br>"It is in Aisle 3, on the first shelf."
-            </div>
-        </div>
-    </div>
+  </div>
 
-    <!-- Dialogue 3 -->
-    <div class="chat-section">
-        <h3>🛒 Finding Items</h3>
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Excuse me, where is the milk?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Excuse me, where is the milk?', 'en-US')">
-                <strong>Customer:</strong><br>"Excuse me, where is the milk?"
-            </div>
-        </div>
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('It is in the beverages section.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('It is in the beverages section.', 'en-GB')">
-                <strong>Assistant:</strong><br>"It is in the beverages section."
-            </div>
-        </div>
-    </div>
+  <div class="page-error" id="pageError" hidden>
+    No se pudo cargar la actividad. Verifica que el archivo JSON de la unidad exista y sea válido.
+  </div>
 
-    <!-- Dialogue 4 -->
-    <div class="chat-section">
-        <h3>🏷️ Sales and Regular Price</h3>
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Is the pasta on sale?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Is the pasta on sale?', 'en-US')">
-                <strong>Customer:</strong><br>"Is the pasta on sale?"
-            </div>
-        </div>
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('No, it is at a regular price today.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('No, it is at a regular price today.', 'en-GB')">
-                <strong>Assistant:</strong><br>"No, it is at a regular price today."
-            </div>
-        </div>
-    </div>
-
-    <!-- Dialogue 5 -->
-    <div class="chat-section" style="background: #f8fbfd; padding: 20px; border-radius: 15px; border: 2px solid #cce0f5;">
-        <h3>🏁 Final Challenge: At the Store</h3>
-        
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Excuse me, where is the chicken?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Excuse me, where is the chicken?', 'en-US')">
-                <strong>Customer:</strong><br>"Excuse me, where is the chicken?"
-            </div>
-        </div>
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('It is in Aisle 4, on the second shelf.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('It is in Aisle 4, on the second shelf.', 'en-GB')">
-                <strong>Assistant:</strong><br>"It is in Aisle 4, on the second shelf."
-            </div>
-        </div>
-
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Thanks! And what is the price of the fish?', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Thanks! And what is the price of the fish?', 'en-US')">
-                <strong>Customer:</strong><br>"Thanks! And what is the price of the fish?"
-            </div>
-        </div>
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('The fish is ten dollars. It is on sale!', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('The fish is ten dollars. It is on sale!', 'en-GB')">
-                <strong>Assistant:</strong><br>"The fish is $10.00. It is on sale!"
-            </div>
-        </div>
-
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Great. Where are the oranges? I want to make fish with orange sauce.', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Great. Where are the oranges? I want to make fish with orange sauce.', 'en-US')">
-                <strong>Customer:</strong><br>"Great. Where are the oranges? I want to make fish with orange sauce."
-            </div>
-        </div>
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('That sounds delicious! They are in the third aisle.', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('That sounds delicious! They are in the third aisle.', 'en-GB')">
-                <strong>Assistant:</strong><br>"That sounds delicious. They are in the third aisle."
-            </div>
-        </div>
-
-        <hr class="divider">
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('Are you ready?', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('Are you ready?', 'en-GB')">
-                <strong>Assistant:</strong><br>"Ready?"
-            </div>
-        </div>
-
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Yes, I have everything I need.', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Yes, I have everything I need.', 'en-US')">
-                <strong>Customer:</strong><br>"Yes, I have everything I need."
-            </div>
-        </div>
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('It is a total of twelve dollars and fifty cents. Cash or credit?', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('It is a total of twelve dollars and fifty cents. Cash or credit?', 'en-GB')">
-                <strong>Assistant:</strong><br>"It is a total of $12.50. Cash or credit?"
-            </div>
-        </div>
-
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Cash, thank you!', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Cash, thank you!', 'en-US')">
-                <strong>Customer:</strong><br>"Cash, thank you!"
-            </div>
-        </div>
-
-        <div class="message-row reverse assistant">
-            <button class="btn-speak" onclick="speak('My pleasure, have a nice day!', 'en-GB')">🔊</button>
-            <div class="message-bubble" onclick="speak('My pleasure, have a nice day!', 'en-GB')">
-                <strong>Assistant:</strong><br>"My pleasure, have a nice day!"
-            </div>
-        </div>
-
-        <div class="message-row customer">
-            <button class="btn-speak" onclick="speak('Thanks, have a good one!', 'en-US')">🔊</button>
-            <div class="message-bubble" onclick="speak('Thanks, have a good one!', 'en-US')">
-                <strong>Customer:</strong><br>"Thanks, have a good one!"
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- Unified Audio Script -->
-<script>
-  function speak(text, lang) {
-    window.speechSynthesis.cancel();
-    const msg = new SpeechSynthesisUtterance();
-    msg.text = text;
-    msg.lang = lang;
-    msg.rate = 0.85; 
-    window.speechSynthesis.speak(msg);
-  }
-</script>
-
+  <script src="js/app.js"></script>
 </body>
 </html>
