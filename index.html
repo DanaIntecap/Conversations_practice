@@ -9,24 +9,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <!--
   Este archivo es un MOTOR genérico: no contiene texto de la actividad.
   Todo el contenido (vocabulario, diálogos, ficha técnica) vive en un JSON
   bajo /data/units/. Para cargar otra unidad, cambia el data-unit del body
-  o abre la página con ?unit=unit-05 (por ejemplo).
+  o abre la página con ?unit=a1-1-unit-05 (por ejemplo).
 -->
-<body data-unit="unit-04">
+<body data-unit="a1-1-unit-04">
 
   <div class="page-loader" id="pageLoader">Loading activity…</div>
 
   <div class="container" id="app" hidden>
 
-    <!-- Header & Logos (ajusta las rutas a tus assets reales) -->
+    <!-- Header & Logos (rutas planas, sin subcarpeta assets/) -->
     <div class="brand-row">
-      <img class="brand-logo" src="assets/ingles-para-todos.png" alt="Logo Inglés para Todos" onerror="this.style.display='none'">
-      <img class="brand-logo" src="assets/logo-intecap.png" alt="Logo Intecap" onerror="this.style.display='none'">
+      <img class="brand-logo" src="ingles-para-todos.png" alt="Logo Inglés para Todos" onerror="this.style.display='none'">
+      <img class="brand-logo" src="logo-intecap.png" alt="Logo Intecap" onerror="this.style.display='none'">
     </div>
 
     <!-- Banner (poblado por JS desde meta) -->
@@ -62,6 +62,6 @@
     No se pudo cargar la actividad. Verifica que el archivo JSON de la unidad exista y sea válido.
   </div>
 
-  <script src="js/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
