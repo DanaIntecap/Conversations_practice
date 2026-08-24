@@ -9,9 +9,13 @@
  *   - diálogos (dialogues[])
  *
  * Cómo elegir la unidad a mostrar (en este orden de prioridad):
- *   1. ?unit=unit-05  en la URL
- *   2. data-unit="unit-05"  en <body>
- *   3. "unit-04" por defecto
+ *   1. ?unit=a1-1-unit-05  en la URL
+ *   2. data-unit="a1-1-unit-05"  en <body>
+ *   3. "a1-1-unit-04" por defecto
+ *
+ * NOTA: los archivos JSON viven en data/units/ (esa carpeta sí se
+ * mantiene) y se llaman a1-1-unit-04.json / a1-1-unit-05.json, así
+ * que el id de unidad debe incluir el prefijo "a1-1-".
  */
 
 (function () {
@@ -27,7 +31,7 @@
     const fromBody = document.body.getAttribute("data-unit");
     if (fromBody) return fromBody;
 
-    return "unit-04";
+    return "a1-1-unit-04";
   }
 
   function speak(text, lang) {
