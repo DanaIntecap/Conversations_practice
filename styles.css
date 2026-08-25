@@ -1,112 +1,324 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Journey · Speaking Cards</title>
+:root {
+  --brand-blue: #0060AA;
+  --brand-blue-light: #e6f0f9;
+  --brand-blue-hover: #cce0f5;
+  --ink: #333333;
+  --muted: #555555;
+  --border: #e0e0e0;
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --radius-sm: 10px;
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+* { box-sizing: border-box; }
 
-<link rel="stylesheet" href="styles.css">
-</head>
-<!--
-  Este archivo es un MOTOR genérico: no contiene texto de la actividad.
-  Todo el contenido (vocabulario, diálogos, ficha técnica) vive en un JSON
-  bajo /data/units/. Para cargar otra unidad, cambia el data-unit del body
-  o abre la página con ?unit=a1-1-unit-05 (por ejemplo).
--->
-<body data-unit="a1-1-unit-04">
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--brand-blue);
+  margin: 0;
+  padding: 20px;
+}
 
-  <div class="page-loader" id="pageLoader">Loading activity…</div>
+.page-loader,
+.page-error {
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 40px 20px;
+}
 
-  <div class="container" id="app" hidden>
+.page-error {
+  background: #b00020;
+  border-radius: var(--radius-sm);
+  max-width: 950px;
+  margin: 20px auto;
+}
 
-    <!-- Header & Logos (rutas planas, sin subcarpeta assets/) -->
-    <div class="brand-row">
-      <img class="brand-logo" src="logo-intecap.png" alt="Logo Intecap" onerror="this.style.display='none'">
-      <img class="brand-logo" src="ingles-para-todos.png" alt="Logo Inglés para Todos" onerror="this.style.display='none'">
-    </div>
+.container {
+  max-width: 950px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+}
 
-    <!-- Aviso de uso: texto fijo, igual en todas las unidades -->
-    <div class="usage-notice">
-      📌 Uso: 🚫 Esta actividad no está diseñada para dejarse como tarea. Su propósito es facilitar la práctica guiada, el acompañamiento docente y el apoyo inmediato al estudiante durante la sesión de clase.
-    </div>
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
 
-    <!-- Selector de unidad: poblado por JS desde data/index.json -->
-    <div class="unit-picker">
-      <label for="unitSelect">📂 Choose an activity:</label>
-      <select id="unitSelect"></select>
-    </div>
+.brand-logo {
+  max-height: 45px;
+}
 
-    <!-- Banner (poblado por JS desde meta) -->
-    <div class="banner">
-      <h2 id="bannerUnit"></h2>
-      <h1 id="bannerTitle"></h1>
-      <h2 id="bannerSubtitle"></h2>
-    </div>
+/* Aviso de uso (no es tarea) */
+.usage-notice {
+  background: #fff4e5;
+  border: 1px solid #f0c37c;
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #7a4a00;
+  line-height: 1.5;
+}
 
-    <!-- Ficha técnica colapsable. La descripción/objetivo/criterios siguen
-         viniendo del JSON (guide), pero las Instrucciones de uso son fijas
-         aquí porque son las mismas para todas las unidades. -->
-    <details class="guide-panel">
-      <summary>📖 Ver Ficha Técnica e Instrucciones de la Actividad</summary>
-      <div class="guide-body">
-        <div class="guide-meta" id="guideMeta"></div>
-        <p id="guideDescription"></p>
-        <h4>🎯 Objetivo de Aprendizaje</h4>
-        <p id="guideObjective"></p>
-        <h4>📌 Instrucciones</h4>
-        <ol>
-          <li>Explora el vocabulario nuevo antes de comenzar la conversación.</li>
-          <li>Haz clic en los botones 🔊 para escuchar la pronunciación correcta.</li>
-          <li>Escucha cada diálogo completo al menos una vez.</li>
-          <li>Repite las preguntas y respuestas en voz alta para practicar pronunciación y entonación.</li>
-          <li>Repite la práctica con un compañero, cambiando roles al terminar.</li>
-        </ol>
-        <h4>✅ Criterios de Éxito</h4>
-        <ul id="guideCriteria"></ul>
-      </div>
-    </details>
+/* Unit picker */
+.unit-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #f0f4f8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95em;
+}
 
-    <!-- Ficha Pedagógica para el Instructor (colapsable, aparte de la ficha técnica) -->
-    <details class="guide-panel pedagogical-panel">
-      <summary>👩‍🏫 Ver Ficha Pedagógica (Guía para el Instructor)</summary>
-      <div class="guide-body">
-        <ul>
-          <li><strong>Modelado inicial:</strong> Proyecta la actividad y demuestra cómo explorar el vocabulario nuevo haciendo clic en los botones 🔊 para reproducir el audio nativo.</li>
-          <li><strong>Escucha activa guiada:</strong> Reproduce el diálogo completo al menos una vez para toda la clase antes de pedirles que hablen, asegurando la comprensión general.</li>
-          <li><strong>Monitoreo de pares:</strong> Divide a la clase en parejas. Circula (o visita las salas virtuales) para asegurarte de que están repitiendo en voz alta con buena entonación y no solo leyendo pasivamente.</li>
-        </ul>
+.unit-picker label {
+  font-weight: 600;
+  color: var(--brand-blue);
+}
 
-        <h4>Sugerencias de Implementación en Clase</h4>
-        <ul>
-          <li><strong>Presencial:</strong> Proyecta la conversación principal en la pizarra. Haz que la mitad de la clase lea el rol "A" a coro y la otra mitad el rol "B", luego pídeles que practiquen en parejas.</li>
-          <li><strong>Virtual (Teams/Zoom):</strong> Utiliza Breakout Rooms asignando parejas. Un estudiante comparte pantalla e interactúa con los audios 🔊 mientras ambos asumen los roles de la conversación.</li>
-          <li><strong>Práctica Autónoma:</strong> Asigna este enlace como preparación (Flipped Classroom) antes de la clase sincrónica, para que los alumnos ya vengan familiarizados con el vocabulario y la pronunciación.</li>
-        </ul>
-      </div>
-    </details>
-    <div class="instructions">
-      <strong>Instructions:</strong> <span id="instructionsBanner"></span>
-    </div>
+.unit-picker select {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  color: var(--ink);
+  background: white;
+  cursor: pointer;
+}
 
-    <!-- Vocabulario (poblado por JS) -->
-    <div class="chat-section">
-      <h3>📚 New Vocabulary</h3>
-      <div class="vocab-section" id="vocabSection"></div>
-    </div>
+.unit-picker select:focus-visible {
+  outline: 2px solid var(--brand-blue);
+}
 
-    <!-- Diálogos (poblados por JS) -->
-    <div id="dialoguesRoot"></div>
+/* Banner */
+.banner {
+  text-align: center;
+  background: var(--brand-blue);
+  color: white;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
 
-  </div>
+.banner h1 {
+  font-family: 'Antonio', sans-serif;
+  font-size: 48px;
+  margin: 5px 0;
+}
 
-  <div class="page-error" id="pageError" hidden>
-    No se pudo cargar la actividad. Verifica que el archivo JSON de la unidad exista y sea válido.
-  </div>
+.banner h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
 
-  <script src="app.js"></script>
-</body>
-</html>
+/* Ficha técnica / guide panel */
+.guide-panel {
+  background: #f0f4f8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 15px;
+  padding: 10px 15px;
+}
+
+.guide-panel summary {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--brand-blue);
+  padding: 5px 0;
+}
+
+.guide-body {
+  font-size: 0.9em;
+  color: var(--ink);
+  padding-top: 10px;
+  line-height: 1.5;
+}
+
+.guide-body h4 {
+  color: var(--brand-blue);
+  margin: 14px 0 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.guide-body ul {
+  margin: 4px 0;
+  padding-left: 20px;
+}
+
+.guide-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
+
+.guide-meta span strong { color: var(--brand-blue); }
+
+/* Ficha Pedagógica: mismo patrón visual que .guide-panel,
+   con acento distinto para identificarla como guía docente */
+.pedagogical-panel {
+  border-left: 8px solid #6a3fa0;
+  background: #f3effa;
+}
+
+.pedagogical-panel summary {
+  color: #6a3fa0;
+}
+
+.pedagogical-panel .guide-body h4 {
+  color: #6a3fa0;
+}
+
+/* Instructions banner */
+.instructions {
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  font-size: 0.95em;
+  color: var(--ink);
+}
+
+/* Vocabulary */
+.vocab-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.vocab-card {
+  background: #f9f9f9;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vocab-word {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--brand-blue);
+  font-size: 1.1em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-blue-light);
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  border: none;
+  width: fit-content;
+}
+
+.vocab-word:hover,
+.vocab-word:focus-visible {
+  background: var(--brand-blue-hover);
+}
+
+.vocab-def {
+  font-size: 0.85em;
+  color: var(--muted);
+  padding-left: 5px;
+}
+
+/* Chat / dialogue sections */
+.chat-section {
+  margin-bottom: 40px;
+}
+
+.chat-section.highlight {
+  background: #f8fbfd;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--brand-blue-hover);
+}
+
+.chat-section h3 {
+  color: var(--brand-blue);
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.message-row.reverse { flex-direction: row-reverse; }
+
+.btn-speak {
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.2em;
+  transition: transform 0.2s;
+  background: #f0f4f8;
+}
+
+.btn-speak:active { transform: scale(0.9); }
+.btn-speak:focus-visible { outline: 2px solid var(--brand-blue); }
+
+.message-bubble {
+  padding: 12px 15px;
+  cursor: pointer;
+  flex-grow: 1;
+  border-radius: 15px;
+  font-size: 0.95em;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+}
+
+.customer .message-bubble {
+  background: #f9f9f9;
+  color: var(--ink);
+  border-radius: 15px 15px 15px 0;
+  border: 1px solid #eee;
+}
+
+.assistant .message-bubble {
+  background: var(--brand-blue-light);
+  color: #004a80;
+  border-radius: 15px 15px 0 15px;
+  text-align: right;
+}
+
+hr.divider {
+  border: 0;
+  border-top: 2px dashed var(--border);
+  margin: 30px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-speak { transition: none; }
+}
