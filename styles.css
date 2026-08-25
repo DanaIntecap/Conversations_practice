@@ -172,6 +172,21 @@ body {
 
 .guide-meta span strong { color: var(--brand-blue); }
 
+/* Ficha Pedagógica: mismo patrón visual que .guide-panel,
+   con acento distinto para identificarla como guía docente */
+.pedagogical-panel {
+  border-left: 8px solid #6a3fa0;
+  background: #f3effa;
+}
+
+.pedagogical-panel summary {
+  color: #6a3fa0;
+}
+
+.pedagogical-panel .guide-body h4 {
+  color: #6a3fa0;
+}
+
 /* Instructions banner */
 .instructions {
   background: #f0f4f8;
